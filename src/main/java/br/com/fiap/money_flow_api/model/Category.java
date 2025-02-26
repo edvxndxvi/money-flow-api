@@ -1,12 +1,14 @@
 package br.com.fiap.money_flow_api.model;
 
+import java.util.Random;
+
 public class Category {
     private Long id;
     private String name;
     private String icon;
 
     public Category(Long id, String name, String icon) {
-        this.id = id;
+        this.id = (id == null) ? new Random().nextLong() : id; // Retorna um id caso não tenha sido informado
         this.name = name;
         this.icon = icon;
     }
