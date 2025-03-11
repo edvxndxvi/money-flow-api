@@ -8,7 +8,7 @@ public class Category {
     private String icon;
 
     public Category(Long id, String name, String icon) {
-        this.id = (id == null) ? new Random().nextLong() : id; // Retorna um id caso não tenha sido informado
+        this.id = (id == null) ? Math.abs(new Random().nextLong()) : id; // Retorna um id caso não tenha sido informado
         this.name = name;
         this.icon = icon;
     }
@@ -35,6 +35,11 @@ public class Category {
 
     public void setIcon(String icon) {
         this.icon = icon;
+    }
+
+    @Override
+    public String toString() {
+        return "Category [id=" + id + ", name=" + name + ", icon=" + icon + "]";
     }
     
 }
