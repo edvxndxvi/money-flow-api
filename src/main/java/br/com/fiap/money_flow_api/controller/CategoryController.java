@@ -20,6 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import br.com.fiap.money_flow_api.model.Category;
 import br.com.fiap.money_flow_api.repository.CategoryRepository;
+import jakarta.validation.Valid;
 
 @RestController 
 @RequestMapping("/categories")
@@ -42,7 +43,7 @@ public class CategoryController {
     // Cadastrar categorias
     // POST
     @PostMapping
-    public ResponseEntity<Category> create(@RequestBody Category category){ // ResponseEntity possibilita controlar o retorno da requisição
+    public ResponseEntity<Category> create(@RequestBody @Valid Category category){ // ResponseEntity possibilita controlar o retorno da requisição
         log.info("Cadastrando..." + category.getName());
         repository.save(category);
         return ResponseEntity.status(201).body(category);
@@ -65,7 +66,7 @@ public class CategoryController {
 
     // Editar categorias
     @PutMapping("/{id}")
-    public Category update(@PathVariable Long id, @RequestBody Category category){
+    public Category update(@PathVariable Long id, @RequestBody @Valid Category category){
         log.info("Atualizando categoria " + id + " " + category);
 
         getCategory(id);
