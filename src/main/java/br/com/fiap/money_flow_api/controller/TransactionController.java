@@ -11,7 +11,7 @@ import br.com.fiap.money_flow_api.model.Transaction;
 import br.com.fiap.money_flow_api.repository.TransactionRepository;
 
 @RestController
-@RequestMapping("/transactions")
+@RequestMapping("transactions")
 public class TransactionController {
 
     @Autowired
